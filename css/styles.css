@@ -194,6 +194,9 @@ form.done .form-fields { display: none; }
 }
 .media::before { content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 1; background: rgba(51, 61, 46, 0.06); mix-blend-mode: multiply; }
 a .media:hover img, .media-hover:hover img { transform: scale(1.035); }
+/* real brand photography: skip the placeholder duotone treatment */
+.media--true img { filter: none; }
+.media--true::before, .media--true::after { display: none; }
 .arch { border-radius: 260px 260px 18px 18px; }
 .media--tall { aspect-ratio: 4 / 5; }
 .media--wide { aspect-ratio: 16 / 10; }
