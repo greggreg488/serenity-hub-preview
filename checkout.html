@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8"><meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Checkout | Serenity Hub</title>
+<meta name="description" content="Secure checkout for the Serenity Hub shop.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://serenityhub.com.au/checkout.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M7 28V17a9 9 0 0 1 18 0v11' fill='none' stroke='%234F624A' stroke-width='2.4' stroke-linecap='round'/%3E%3Ccircle cx='16' cy='16' r='3' fill='%234F624A'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+<link rel="stylesheet" href="css/styles.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div id="top-sentinel" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container-wide header-in">
+    <a class="brand" href="index.html" aria-label="Serenity Hub, home">
+      <svg viewBox="0 0 32 32" aria-hidden="true" fill="none"><path d="M7 28V17a9 9 0 0 1 18 0v11" stroke="currentColor" stroke-width="2"/><circle cx="16" cy="16" r="3" fill="currentColor"/></svg>
+      <span class="brand-name">Serenity Hub</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="classes.html">Classes</a>
+      <a href="workshops.html">Workshops</a>
+      <a href="events.html">Events</a>
+      <a href="membership.html">Membership</a>
+      <a href="shop.html">Shop</a>
+      <a href="blog.html">Journal</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <button class="cart-btn" data-open-cart aria-label="Open your bag"><i class="ph ph-tote-simple" aria-hidden="true"></i><span class="cart-count"></span></button>
+      <button class="nav-toggle" aria-expanded="false" aria-label="Open menu"><i class="ph ph-list" aria-hidden="true"></i></button>
+    </div>
+  </div>
+</header>
+
+<div class="menu-overlay" role="dialog" aria-label="Menu" tabindex="-1">
+  <div class="menu-top">
+    <span class="brand-name">Serenity Hub</span>
+    <button class="nav-toggle menu-close" aria-label="Close menu"><i class="ph ph-x" aria-hidden="true"></i></button>
+  </div>
+  <nav class="menu-links" aria-label="Primary, mobile">
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="classes.html">Classes</a>
+    <a href="workshops.html">Workshops</a>
+    <a href="events.html">Events</a>
+    <a href="membership.html">Membership</a>
+    <a href="shop.html">Shop</a>
+    <a href="blog.html">Journal</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <div class="menu-foot">
+    <a class="btn btn-primary" href="shop.html">Back to the shop</a>
+    <p class="meta">Open seven days · 12 Acacia Lane, Avalon Beach NSW</p>
+  </div>
+</div>
+
+<main id="main">
+  <section class="section-tight section">
+    <div class="container">
+      <h1 class="display-lg reveal">Checkout</h1>
+
+      <div id="checkout-empty" style="display:none">
+        <div class="notice" style="padding:2.2rem;max-width:520px">
+          <h2 class="display-sm">Your bag is empty</h2>
+          <p style="color:var(--ink-soft)">It happens to the best of us.</p>
+          <a class="btn btn-primary" href="shop.html">Back to the shop</a>
+        </div>
+      </div>
+
+      <div class="success-panel" id="checkout-success" role="status">
+        <h3><i class="ph ph-check-circle" aria-hidden="true" style="color:var(--sage-deep)"></i> Order placed, thank you</h3>
+        <p style="color:var(--ink-soft)">Your order reference is <strong id="order-ref"></strong>. A confirmation email with your receipt is on its way to <strong id="order-email"></strong>.</p>
+        <p style="color:var(--ink-soft)">We pack orders within two business days, slower on market weekends, and always with too much tissue paper.</p>
+        <a class="link-arrow" href="shop.html">Keep browsing <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+        <p class="demo-note" style="margin-top:1rem">Prototype checkout: nothing was charged and no email was sent.</p>
+      </div>
+
+      <div class="checkout-grid mt-2" id="checkout-grid">
+        <form id="checkout-form" class="reveal">
+          <h2 class="display-sm">Contact</h2>
+          <div class="form-grid">
+            <div class="field">
+              <label for="co-email">Email</label>
+              <input class="input" id="co-email" type="email" autocomplete="email" required>
+              <p class="error-text">Please add a valid email address.</p>
+            </div>
+            <div class="field">
+              <label for="co-phone">Phone <span class="meta">(for delivery updates)</span></label>
+              <input class="input" id="co-phone" type="tel" autocomplete="tel">
+            </div>
+          </div>
+
+          <h2 class="display-sm" style="margin-top:1.6rem">Delivery</h2>
+          <div class="segmented" role="group" aria-label="Delivery method" style="margin-bottom:1.2rem">
+            <button type="button" data-mode="delivery" aria-pressed="true">Ship it</button>
+            <button type="button" data-mode="pickup" aria-pressed="false">Click and collect</button>
+          </div>
+          <div id="shipping-fields">
+            <div class="form-grid">
+              <div class="field full">
+                <label for="co-name">Full name</label>
+                <input class="input" id="co-name" type="text" autocomplete="name" required required-when-delivery>
+                <p class="error-text">Please add your name.</p>
+              </div>
+              <div class="field full">
+                <label for="co-address">Street address</label>
+                <input class="input" id="co-address" type="text" autocomplete="street-address" required required-when-delivery>
+                <p class="error-text">Please add your address.</p>
+              </div>
+              <div class="field">
+                <label for="co-suburb">Suburb</label>
+                <input class="input" id="co-suburb" type="text" autocomplete="address-level2" required required-when-delivery>
+                <p class="error-text">Please add your suburb.</p>
+              </div>
+              <div class="field">
+                <label for="co-state">State</label>
+                <select class="input" id="co-state" autocomplete="address-level1">
+                  <option>NSW</option><option>VIC</option><option>QLD</option><option>WA</option><option>SA</option><option>TAS</option><option>ACT</option><option>NT</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="co-postcode">Postcode</label>
+                <input class="input" id="co-postcode" inputmode="numeric" autocomplete="postal-code" required required-when-delivery>
+                <p class="error-text">Please add your postcode.</p>
+              </div>
+            </div>
+          </div>
+
+          <h2 class="display-sm" style="margin-top:1.6rem">Payment</h2>
+          <div class="pay-methods" style="max-width:420px">
+            <button class="pay-btn pay-btn--express" type="button"><i class="ph ph-apple-logo" aria-hidden="true"></i> Pay</button>
+            <button class="pay-btn pay-btn--express pay-btn--alt" type="button"><i class="ph ph-google-logo" aria-hidden="true"></i> Pay</button>
+            <button class="pay-btn pay-btn--express pay-btn--alt" type="button"><i class="ph ph-paypal-logo" aria-hidden="true"></i> PayPal</button>
+          </div>
+          <div class="pay-divider" style="max-width:420px">or pay by card</div>
+          <div class="card-fields" style="max-width:420px">
+            <div class="field full">
+              <label for="co-card">Card number</label>
+              <input class="input" id="co-card" inputmode="numeric" autocomplete="cc-number" placeholder="1234 5678 9012 3456" required>
+              <p class="error-text">Please add a card number.</p>
+            </div>
+            <div class="field">
+              <label for="co-exp">Expiry</label>
+              <input class="input" id="co-exp" inputmode="numeric" autocomplete="cc-exp" placeholder="MM / YY" required>
+              <p class="error-text">Add an expiry date.</p>
+            </div>
+            <div class="field">
+              <label for="co-cvc">CVC</label>
+              <input class="input" id="co-cvc" inputmode="numeric" autocomplete="cc-csc" placeholder="123" required>
+              <p class="error-text">Add the CVC.</p>
+            </div>
+          </div>
+          <button class="btn btn-primary mt-2" type="submit">Pay and place order</button>
+          <p class="demo-note" style="margin-top:.8rem">Prototype checkout: nothing is charged and no email is sent.</p>
+        </form>
+
+        <aside class="order-summary reveal" style="--d:1" aria-label="Order summary">
+          <h2 class="display-sm">Your order</h2>
+          <div id="order-lines"></div>
+          <div class="summary-row"><span>Subtotal</span><span id="sum-subtotal">$0</span></div>
+          <div class="summary-row"><span>Shipping</span><span id="sum-shipping">$0</span></div>
+          <div class="summary-row total"><span>Total</span><span id="sum-total">$0</span></div>
+          <p class="meta" style="margin-top:1rem">Prices in Australian dollars, GST included.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-note" style="border-top:0">
+    <span>&copy; 2026 Serenity Hub · 12 Acacia Lane, Avalon Beach NSW 2107</span>
+    <span><a class="link-plain" href="shop.html">Back to the shop</a></span>
+  </div>
+</footer>
+
+<div class="drawer-backdrop" aria-hidden="true"></div>
+<aside class="cart-drawer" role="dialog" aria-label="Your bag" tabindex="-1">
+  <div class="cart-head">
+    <h2>Your bag</h2>
+    <button class="icon-btn cart-close" aria-label="Close your bag"><i class="ph ph-x" aria-hidden="true"></i></button>
+  </div>
+  <div class="cart-items"></div>
+  <div class="cart-foot">
+    <div class="cart-total-row"><span>Subtotal</span><strong class="cart-total-val">$0</strong></div>
+    <p class="meta" style="margin:0">Shipping calculated at checkout. Free over $80.</p>
+    <a class="btn btn-primary" href="checkout.html" style="justify-content:center">Checkout</a>
+  </div>
+</aside>
+<script src="js/main.js" defer></script>
+</body>
+</html>
